@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>File Upload</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <meta name="google" content="notranslate" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous" />
+        <style>
+            body {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            background-color: #fdfdfd;
+        }
+        .masthead {
+            background: #3398E1;
+            height: auto;
+            padding-bottom: 15px;
+            box-shadow: 0 16px 48px #E3E7EB;
+            padding-top: 10px;
+            color:white;
+            text-align:center;
+        }
+    .head_text {
+        color: white;
+    }
+    
+    .card {
+        width:700px;
+        box-shadow: 0 16px 48px #E3E7EB;
+        padding:30px 30px;
+    }
+        </style>
+    </head>
+<body>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white">Info Retrieval File Upload</h3>
+                    <p class="text-light">Upload a file to our database for preprocessing ..!&nbsp
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<br>
+<div class="container">
+    <div class="row">
+        <!-- List of uploaded documents -->
+        <div class="card mb-4">
+       <!--  {% if documents %}
+            All documents uploaded to the database:
+            <ul>
+                {% for document in documents %}
+                    <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p><i>No Uploaded documents</i></p>
+        {% endif %} -->
+
+          {% if out %}
+            
+                   <script type="text/javascript">
+                   alert("Indexing done")
+               </script>
+        {% endif %}
+
+        <!-- Upload form. Note enctype attribute! -->
+        <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Name of author</label>
+                            <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter aurthor's name.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+            <p><input type="submit" value="Upload"/></p>
+        </form>
+        <div>
+    </div>
+</div>
+<br><br>
+<footer class="col-md-9">
+<p style="text-align:center">Information Retrieval Project</p>
+</footer>
+    </body>
+</html>
+
+
+      

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <title>Search Result</title>
+  <head>
+    <style>
+      html, body { 
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      }
+
+      .masthead {
+          background: skyblue;
+          height: auto;
+          padding-bottom: 15px;
+          box-shadow: 0 16px 48px #E3E7EB;
+          padding: 30px;
+          color:white;
+          text-align:center;
+      }
+      span.psw {
+      float: right;
+      padding-top: 0;
+      padding-right: 15px;
+      }
+      #rheader{
+        text-align: center;
+        padding: 10px;
+        font-size: 20px;
+        background: gray;
+      }
+      .rlist{
+        padding: 10px;
+        font-size: 16px;
+        background: skyblue;
+      }    
+      .head_text {
+        color: white;
+      }
+    
+      .card {
+        width:700px;
+        box-shadow: 0 16px 48px #E3E7EB;
+        padding:30px 30px;
+    }
+    </style>
+  </head>
+<body>
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white">Results</h3>
+                    <p class="text-light"> &nbsp
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<br>
+<div class="container">
+    <div class="row">
+        <!-- List of uploaded documents -->
+        <div class="card mb-4">
+
+      {% if data %}
+        {% for datas in data %}
+          {% if datas == data.0 %}
+            <div class="rlist">
+              <strong>{{datas|slice:"2:-2"}}</strong>
+            </div></br>
+           {% else %}
+            <div class="rlist">
+            <strong>{{datas|slice:":-2"}}</strong>
+          </div></br>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+          <div class="rlist">
+              <strong>No result found</strong>
+            </div></br>
+      {% endif %}
+    </div>
+    </div>
+</div>
+</body>
+</html>

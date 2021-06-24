@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Themesbox17">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>RETRIEVAL APP</title>
+    <style>
+      html, body {
+      display: flex;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      }
+      form {
+      border: 5px solid #f1f1f1;
+      padding: 50px;
+      position: relative;
+      top:50%;
+      transform: translateY(-50px);
+      }
+      input[type=text], input[type=password] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+      .icon {
+      font-size: 110px;
+      display: flex;
+      justify-content: center;
+      color: #4286f4;
+      }
+      .buttoned {
+      background-color: #4286f4;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grab;
+      width: 48%;
+      }
+      h1 {
+      text-align:center;
+      fone-size:18;
+      }
+      .buttoned:hover {
+      opacity: 0.8;
+      }
+      .formcontainer {
+      text-align: center;
+      margin: 24px 50px 12px;
+      }
+      .container {
+      padding: 16px 0;
+      text-align:left;
+      }
+      span.psw {
+      float: right;
+      padding-top: 0;
+      padding-right: 15px;
+      }
+      #upload{
+        position: absolute;
+        bottom:0px;
+        right: 0px;
+        margin-bottom: 20px;
+        margin-right: 100px;
+        text-decoration: none;
+        border: 1px solid transparent;
+        background-color: #4286f4;
+        padding: 15px;
+        letter-spacing: 2px;
+        height: 25px;
+        color: black;
+        font-weight: bolder;
+      }
+      #upload:hover{
+        background: inherit;
+        border: 1px solid #4286f4;
+        border-radius: 50px;
+        color:#4286f4;
+      }
+      /* Change styles for span on extra small screens */
+      @media screen and (max-width: 300px) {
+      span.psw {
+      display: block;
+      float: none;
+      }
+    </style>
+  </head>
+  <body>
+  <a id="upload" href="{% url 'upload' %}">Upload document</a>
+    <form action="/process/" method="post">
+      <h1>RESERACH PAPER RETRIEVAL SYSTEM.</h1>
+      <div class="icon">
+        <i class="fas fa-user-circle"></i>
+      </div>
+      <div class="formcontainer">
+      <div class="container">
+        <input type="text" placeholder="Enter search" name="uname" required>
+      </div>
+      <input class="buttoned" type="submit" value="search up">
+    </form>
+  </body>
+</html>

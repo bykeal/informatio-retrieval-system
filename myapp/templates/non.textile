@@ -1,0 +1,1 @@
+<!-- <button type="submit" onclick="location.href = '{% url 'process' %}'"><strong>search up</strong></button> -->
